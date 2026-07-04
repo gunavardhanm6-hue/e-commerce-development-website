@@ -1,0 +1,97 @@
+/* ============================================================
+   LOADER STYLES — Animated loading spinner
+   Features a triple-ring spinner with gradient colors
+   ============================================================ */
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+/* ---- Full-Screen Overlay ---- */
+.loader__overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 15, 26, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: var(--z-overlay);
+  animation: fadeIn 0.2s ease;
+}
+
+/* ---- Spinner Ring ---- */
+.loader__ring {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader__ring-segment {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  animation: spin 1.2s linear infinite;
+}
+
+.loader__ring-segment:nth-child(1) {
+  border-top-color: var(--color-primary);
+  animation-delay: 0s;
+}
+
+.loader__ring-segment:nth-child(2) {
+  border-right-color: var(--color-secondary);
+  animation-delay: 0.15s;
+}
+
+.loader__ring-segment:nth-child(3) {
+  border-bottom-color: var(--color-accent);
+  animation-delay: 0.3s;
+}
+
+/* ---- Sizes ---- */
+.loader--sm .loader__ring {
+  width: 24px;
+  height: 24px;
+}
+
+.loader--sm .loader__ring-segment {
+  width: 24px;
+  height: 24px;
+  border-width: 2px;
+}
+
+.loader--md .loader__ring {
+  width: 40px;
+  height: 40px;
+}
+
+.loader--md .loader__ring-segment {
+  width: 40px;
+  height: 40px;
+}
+
+.loader--lg .loader__ring {
+  width: 64px;
+  height: 64px;
+}
+
+.loader--lg .loader__ring-segment {
+  width: 64px;
+  height: 64px;
+  border-width: 4px;
+}
+
+/* ---- Loading Text ---- */
+.loader__text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  animation: pulse 1.5s ease-in-out infinite;
+}

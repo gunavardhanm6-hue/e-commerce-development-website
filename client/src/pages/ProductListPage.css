@@ -1,0 +1,88 @@
+/* ============================================================
+   PRODUCT LIST PAGE — Product grid page styles
+   ============================================================ */
+
+.product-list-page {
+  min-height: calc(100vh - var(--navbar-height));
+  padding: var(--space-2xl) 0;
+  animation: fadeIn 0.4s ease;
+}
+
+.product-list-page__header {
+  margin-bottom: var(--space-2xl);
+}
+
+.product-list-page__title {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-sm);
+}
+
+.product-list-page__subtitle {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* ---- Product Grid ---- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-xl);
+}
+
+/* ---- States ---- */
+.product-list-page__loading {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-xl);
+}
+
+.product-list-page__skeleton {
+  height: 340px;
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-glass) 25%,
+    rgba(255, 255, 255, 0.08) 50%,
+    var(--color-bg-glass) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-xl);
+}
+
+.product-list-page__error {
+  padding: var(--space-xl);
+  background: var(--color-error-bg);
+  color: var(--color-error);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.product-list-page__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-3xl);
+  text-align: center;
+  gap: var(--space-lg);
+}
+
+.product-list-page__empty-icon {
+  font-size: 4rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.product-list-page__empty-title {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.product-list-page__empty-text {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin: 0;
+}

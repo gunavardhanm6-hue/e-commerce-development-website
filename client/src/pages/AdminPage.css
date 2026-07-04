@@ -1,0 +1,311 @@
+/* ============================================================
+   ADMIN PAGE — Product management dashboard styles
+   ============================================================ */
+
+.admin-page {
+  min-height: calc(100vh - var(--navbar-height));
+  padding: var(--space-2xl) 0;
+  animation: fadeIn 0.4s ease;
+}
+
+.admin-page__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2xl);
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.admin-page__title {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.admin-page__add-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  background: linear-gradient(135deg, var(--color-success), #00a381);
+  color: white;
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: 0 0 20px rgba(0, 184, 148, 0.2);
+}
+
+.admin-page__add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(0, 184, 148, 0.4);
+}
+
+/* ---- Modal ---- */
+.admin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+  padding: var(--space-lg);
+  animation: fadeIn 0.2s ease;
+}
+
+.admin-modal {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-xl);
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease;
+}
+
+.admin-modal__title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-xl);
+}
+
+.admin-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.admin-modal__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.admin-modal__label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.admin-modal__input,
+.admin-modal__textarea,
+.admin-modal__select {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-bg-input);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family);
+  transition: border-color var(--transition-fast);
+}
+
+.admin-modal__input:focus,
+.admin-modal__textarea:focus,
+.admin-modal__select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.admin-modal__textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.admin-modal__select option {
+  background: var(--color-bg-secondary);
+}
+
+.admin-modal__actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.admin-modal__submit-btn {
+  flex: 1;
+  padding: var(--space-sm) var(--space-lg);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.admin-modal__submit-btn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.admin-modal__cancel-btn {
+  padding: var(--space-sm) var(--space-lg);
+  background: transparent;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.admin-modal__cancel-btn:hover {
+  border-color: var(--color-text-secondary);
+  color: var(--color-text-primary);
+}
+
+/* ---- Product Table ---- */
+.admin-table-wrapper {
+  overflow-x: auto;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(12px);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th {
+  padding: var(--space-md) var(--space-lg);
+  text-align: left;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.admin-table td {
+  padding: var(--space-md) var(--space-lg);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+}
+
+.admin-table tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-table tr:hover td {
+  background: var(--color-bg-glass);
+}
+
+.admin-table__image {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  background: var(--color-bg-glass);
+}
+
+.admin-table__image-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-glass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.admin-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+}
+
+.admin-status-badge--active {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+}
+
+.admin-status-badge--discontinued {
+  background: var(--color-error-bg);
+  color: var(--color-error);
+}
+
+/* ---- Table Action Buttons ---- */
+.admin-table__actions {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.admin-table__action-btn {
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  background: transparent;
+}
+
+.admin-table__action-btn--edit {
+  color: var(--color-primary-light);
+  border-color: rgba(108, 92, 231, 0.3);
+}
+
+.admin-table__action-btn--edit:hover {
+  background: rgba(108, 92, 231, 0.1);
+}
+
+.admin-table__action-btn--delete {
+  color: var(--color-error);
+  border-color: rgba(255, 107, 107, 0.3);
+}
+
+.admin-table__action-btn--delete:hover {
+  background: rgba(255, 107, 107, 0.1);
+}
+
+/* ---- Stock Update Inline ---- */
+.admin-table__stock-form {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.admin-table__stock-input {
+  width: 64px;
+  padding: 4px var(--space-xs);
+  background: var(--color-bg-input);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-xs);
+  text-align: center;
+}
+
+.admin-table__stock-btn {
+  padding: 4px 8px;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  cursor: pointer;
+}
